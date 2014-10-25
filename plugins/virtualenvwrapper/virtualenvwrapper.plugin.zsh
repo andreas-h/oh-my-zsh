@@ -1,6 +1,5 @@
-virtualenvwrapper='virtualenvwrapper_lazy.sh'
-if (( $+commands[$virtualenvwrapper] )); then
-  source ${${virtualenvwrapper}:c}
+if [[ -e $VIRTUALENVWRAPPER_LAZY ]]; then
+  source ${${VIRTUALENVWRAPPER_LAZY}:c}
 
   if [[ ! $DISABLE_VENV_CD -eq 1 ]]; then
     # Automatically activate Git projects's virtual environments based on the
@@ -55,5 +54,5 @@ if (( $+commands[$virtualenvwrapper] )); then
     fi
   fi
 else
-  print "zsh virtualenvwrapper plugin: Cannot find ${virtualenvwrapper}. Please install with \`pip install virtualenvwrapper\`."
+  print "zsh virtualenvwrapper plugin: Cannot find ${VIRTUALENVWRAPPER_LAZY}. Please install with \`pip install virtualenvwrapper\`."
 fi
